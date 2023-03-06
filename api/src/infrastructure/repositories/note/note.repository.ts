@@ -10,9 +10,9 @@ export class NoteRepository {
     private readonly noteModel: Model<NoteDocument>,
   ) {}
 
-  async getNotes(): Promise<NoteDocument[]> {
+  async getNotes(filter = {}): Promise<NoteDocument[]> {
     return this.noteModel
-      .find({})
+      .find(filter)
       .sort([['value', -1]])
       .exec();
   }

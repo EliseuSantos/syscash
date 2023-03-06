@@ -32,7 +32,11 @@ export class NoteService {
       const valueLeft = value - note.value;
 
       if (valueLeft === 0) {
-        return { withdraw: notesWithdraw, note };
+        const dataNotes = this.noteRepository.getNotes({
+          value: { "$in" : Object.keys(notesWithdraw)}
+        });
+
+        return { withdraw: notesWithdraw, notes: dataNotes };
       }
 
       return await this.notesRules(valueLeft, notesWithdraw);
