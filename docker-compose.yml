@@ -43,7 +43,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_URL: mongodb://mongo:mongo@syscash-mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:mongo@localhost:27017/
     networks:
       - dev
 
