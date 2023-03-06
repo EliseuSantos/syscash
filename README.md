@@ -5,7 +5,22 @@
 - docker-compose
 
 # Instalation
-- docker-compose up -d
+    - Docker
+        - docker-compose up -d
+    - Manual
+        - API
+            - cd api
+            - npm i
+            - cp .env.example .env
+            - npm run seed
+            - npm run start:dev
+        - FRONT
+            - cd front
+            - npm i
+            - cp .env.example .env
+            - npm run start
+
+
 
 # Containers
 - MongoDB: 27017
