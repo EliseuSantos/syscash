@@ -1,10 +1,10 @@
 # SysCash
 
-## Requisitos
+## Requirements
 - Docker
 - docker-compose
 
-# Instalação
+# Instalation
 - docker-compose up -d
 
 # Containers
