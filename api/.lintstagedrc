@@ -1,0 +1,4 @@
+{
+  "{src,apps,libs,__test__}/**/*.ts": ["yarn run lint"],
+  "./**/*.{ts,js,json}": ["yarn run format"]
+}

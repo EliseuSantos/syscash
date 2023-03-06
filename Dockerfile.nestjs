@@ -1,0 +1,14 @@
+FROM node:16.13.1-alpine
+
+ARG TOKEN
+
+WORKDIR /usr/app
+COPY ./api /usr/app
+
+RUN yarn --pure-lockfile
+RUN yarn build
+
+EXPOSE 5000
+EXPOSE 5051
+
+CMD ["yarn", "start:prod"]

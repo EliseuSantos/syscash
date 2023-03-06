@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  syscash-react:
+    container_name: "syscash-react"
+    build:
+      context: "."
+      dockerfile: "./Dockerfile.react"
+    volumes:
+      - ./front/:/app
+    working_dir: /app
+    ports:
+      - '3000:3000'
+    networks:
+      - dev
+
+  syscash-api:
+    container_name: syscash-api
+    build:
+      context: "."
+      dockerfile: "./Dockerfile.nestjs"
+    ports:
+      - '8000:8000'
+    restart: "no"
+    networks:
+      - dev
+
+  syscash-mongo:
+    container_name: syscash-mongo
+    image: mongo
+    restart: "no"
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./.docker/mongo:/data/db:rw
+    networks:
+      - dev
+
+  syscash-mongo-express:
+    container_name: syscash-mongo-express
+    image: mongo-express
+    restart: "no"
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:mongo@syscash-mongo:27017/
+    networks:
+      - dev
+
+networks:
+  dev:
+    driver: bridge

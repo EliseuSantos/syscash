@@ -1,0 +1,11 @@
+FROM node:16.13.1-alpine
+
+WORKDIR /usr/src/app/my-app
+
+COPY ./front/package*.json ./
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

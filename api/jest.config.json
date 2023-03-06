@@ -1,0 +1,74 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "roots": [
+    "./"
+  ],
+  "transform": {
+    "\\.ts$": [
+      "ts-jest"
+    ]
+  },
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|unit-spec))\\.tsx?$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": {
+        "allowJs": true
+      }
+    }
+  },
+  "setupFilesAfterEnv": [
+    "./__test__/jest.setup.ts"
+  ],
+  "coverageProvider": "v8",
+  "coveragePathIgnorePatterns": [
+    "node_modules",
+    "dist",
+    "index.ts",
+    "entities.ts",
+    ".js",
+    ".module.ts",
+    "src/main.ts",
+    ".mock.ts",
+    ".decorator.ts",
+    ".strategy.ts",
+    ".filter.ts",
+    ".util.ts",
+    ".interceptor.ts",
+    ".pipe.ts",
+    ".helper.ts",
+    ".seed.ts",
+    ".dto.ts",
+    ".entity.ts",
+    "mongoose.service.ts"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/domain/entities/**",
+    "!src/domain/interfaces/*",
+    "!src/domain/modules/*",
+    "!src/infrastructure/config/*"
+  ],
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "coverageThreshold": {
+    "global": {
+      "lines": 80,
+      "functions": 80,
+      "branch": 80,
+      "statements": 80
+    }
+  },
+  "moduleNameMapper": {
+    "^__test__(.*)$": "<rootDir>/__test__$1",
+    "^@application(.*)$": "<rootDir>/src/application$1",
+    "^@domain(.*)$": "<rootDir>/src/domain$1",
+    "^@infrastructure(.*)$": "<rootDir>/src/infrastructure$1"
+  }
+}
