@@ -7,6 +7,8 @@ COPY ./api /usr/app
 
 RUN yarn --pure-lockfile
 RUN yarn build
+RUN yarn seed:refresh
+RUN yarn seed
 
 EXPOSE 8000
 
